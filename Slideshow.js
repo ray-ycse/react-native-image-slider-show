@@ -21,7 +21,7 @@ const minorVersion = +splitVersion[1];
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    backgroundColor: '#222',
+    backgroundColor: '#c5c5c5',
   },
   layoutIndicator: {
     height: 15,
@@ -192,7 +192,7 @@ export default class Slideshow extends Component {
             { height: height }
           ]}>
           {this.props.dataSource.map((image, index) => {
-            const imageObject = typeof image.url === 'string' ? {uri: image.url} : image.url;
+            const imageObject = typeof image.url === 'string' ? {uri: image.url, cache: 'force-cache'} : image.url;
             const textComponent = (
               <View style={styles.layoutText}>
                 {image.title === undefined ? null : <Text style={this.props.titleStyle}>{image.title}</Text>}
